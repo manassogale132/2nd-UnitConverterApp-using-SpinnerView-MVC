@@ -57,14 +57,26 @@ class UnitConverterActivity : AppCompatActivity()  {
 
                     var inputValue : Double = firstInputEditText.text.toString().toDouble()  //Extracting the input value from edit-text view.
 
-                    when(quantitySpinner.selectedItem){
+                    when(quantitySpinner.selectedItem) {
                         "Weight" -> {
-                           val fromUnitSpinner = Weight.valueOf(firstSelectedUnit)   //.valueOf - Returns the enum constant of this type with the specified name.
+                           val fromUnitSpinner = Weight.valueOf(firstSelectedUnit)
+
+                            //.valueOf - This methods returns the enum constant defined in enum, matching the input string.
+                            // If the constant, is not present in the enum, then an IllegalArgumentException is thrown.
+
                             when(Weight.valueOf(secondSelectedUnit)) {
-                                Weight.Kilogram -> convertedTextView.setText(" ${inputValue * fromUnitSpinner.kilogramConvert} kilogram(s) ")
-                                Weight.Gram -> convertedTextView.setText(" ${inputValue * fromUnitSpinner.gramConvert} gram(s) ")
-                                Weight.Pound -> convertedTextView.setText(" ${inputValue * fromUnitSpinner.poundConvert} pound(s) ")
-                                Weight.Ton -> convertedTextView.setText(" ${inputValue * fromUnitSpinner.tonConvert} ton(s)")
+                                Weight.Kilogram -> {
+                                    convertedTextView.setText(" ${inputValue * fromUnitSpinner.kilogramConvert} kilogram(s) ")
+                                }
+                                Weight.Gram -> {
+                                    convertedTextView.setText(" ${inputValue * fromUnitSpinner.gramConvert} gram(s) ")
+                                }
+                                Weight.Pound -> {
+                                    convertedTextView.setText(" ${inputValue * fromUnitSpinner.poundConvert} pound(s) ")
+                                }
+                                Weight.Ton -> {
+                                    convertedTextView.setText(" ${inputValue * fromUnitSpinner.tonConvert} ton(s)")
+                                }
                             }
                         }
                     }
