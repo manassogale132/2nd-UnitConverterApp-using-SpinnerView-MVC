@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">MySecondUnitConverterApp</string>
+
+    <string-array name="Quantity">
+        <item>Weight</item>
+        <item>Length</item>
+        <item>Volume</item>
+    </string-array>
+
+    <string-array name="WeightUnits">
+        <item>Kilogram</item>
+        <item>Gram</item>
+        <item>Pound</item>
+        <item>Ton</item>
+    </string-array>
+
+    <string-array name="LengthUnits">
+        <item>Kilometer</item>
+        <item>Meter</item>
+        <item>Inch</item>
+        <item>Feet</item>
+    </string-array>
+
+    <string-array name="VolumeUnits">
+        <item>Liter</item>
+        <item>Milliliter </item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    tools:context=".UnitConverterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="60dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quantity Type"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/custon_font2"/>
+
+        <Spinner
+            android:id="@+id/quantitySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_dropdown"
+            android:entries="@array/Quantity"
+            android:paddingTop="30dp"
+            android:paddingBottom="25dp"
+            />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="From Unit"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/custon_font2"/>
+
+        <Spinner
+            android:id="@+id/fromUnitSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_dropdown"
+            android:entries="@array/WeightUnits"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp" />
+
+        <EditText
+            android:id="@+id/firstInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:hint="Enter value here"
+            android:inputType="textPersonName"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:fontFamily="@font/custon_font2"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="To Unit"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/custon_font2"/>
+
+        <Spinner
+            android:id="@+id/toUnitSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_dropdown"
+            android:entries="@array/WeightUnits"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp" />
+
+        <TextView
+            android:id="@+id/convertedTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Converted"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textSize="22dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/custon_font2"/>
+
+        <Button
+            android:id="@+id/convertBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="60dp"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/white"
+            app:backgroundTint="#000000"
+            android:text="Convert"
+            android:textSize="22dp"
+            android:fontFamily="@font/custon_font2" />
+
+    </LinearLayout>
+</ScrollView>
