@@ -51,7 +51,9 @@ class UnitConverterActivity : AppCompatActivity()  {
     }
                 @SuppressLint("SetTextI18n")
                 fun convert() {
+
                     if (validationCheck()) {
+
                         val firstSelectedUnit = fromUnitSpinner.selectedItem.toString()    //setting the selected item from first-unit-spinner to variable
                         val secondSelectedUnit = toUnitSpinner.selectedItem.toString()    //setting the selected item from second-unit-spinner to variable
                         //.selectedItem - returns the data corresponding to current data item
@@ -79,9 +81,29 @@ class UnitConverterActivity : AppCompatActivity()  {
                                     convertedTextView.setText(" ${fromUnitSpinner.tonConvert * inputValue} ton(s)")
                                 }
                             }
+
+                            "Length" -> {
+
+                                val fromUnitSpinner = Length.valueOf(firstSelectedUnit)
+                                val secondSelectedUnit = Length.valueOf(secondSelectedUnit)
+
+                                if (secondSelectedUnit == Length.Kilometer) {
+                                    convertedTextView.setText(" ${fromUnitSpinner.kilometerConvert * inputValue} kilometer(s) ")
+                                }
+                                if (secondSelectedUnit == Length.Meter) {
+                                    convertedTextView.setText(" ${fromUnitSpinner.meterConvert * inputValue} meter(s) ")
+                                }
+                                if (secondSelectedUnit == Length.Inch) {
+                                    convertedTextView.setText(" ${fromUnitSpinner.inchConvert * inputValue} inch(s) ")
+                                }
+                                if (secondSelectedUnit == Length.Feet) {
+                                    convertedTextView.setText(" ${fromUnitSpinner.feetConvert * inputValue} feet(s)")
+                                }
+                            }
+                            }
                         }
                     }
-                }
+
 
                 fun validationCheck() : Boolean {                //entry validation check method
                     var a = true
