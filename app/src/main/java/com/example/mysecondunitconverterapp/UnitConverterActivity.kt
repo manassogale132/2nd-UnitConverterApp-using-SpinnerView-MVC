@@ -1,5 +1,6 @@
 package com.example.mysecondunitconverterapp
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -49,8 +50,8 @@ class UnitConverterActivity : AppCompatActivity()  {
 
     }
 
+                @SuppressLint("SetTextI18n")
                 fun convert(){
-
                     val firstSelectedUnit = fromUnitSpinner.selectedItem.toString()    //setting the selected item from first-unit-spinner to variable
                     val secondSelectedUnit  = toUnitSpinner.selectedItem.toString()    //setting the selected item from second-unit-spinner to variable
                                                                                       //.selectedItem - returns the data corresponding to current data item
@@ -66,16 +67,16 @@ class UnitConverterActivity : AppCompatActivity()  {
 
                             when(Weight.valueOf(secondSelectedUnit)) {
                                 Weight.Kilogram -> {
-                                    convertedTextView.setText(" ${inputValue * fromUnitSpinner.kilogramConvert} kilogram(s) ")
+                                    convertedTextView.setText(" ${fromUnitSpinner.kilogramConvert * inputValue} kilogram(s) ")
                                 }
                                 Weight.Gram -> {
-                                    convertedTextView.setText(" ${inputValue * fromUnitSpinner.gramConvert} gram(s) ")
+                                    convertedTextView.setText(" ${fromUnitSpinner.gramConvert * inputValue} gram(s) ")
                                 }
                                 Weight.Pound -> {
-                                    convertedTextView.setText(" ${inputValue * fromUnitSpinner.poundConvert} pound(s) ")
+                                    convertedTextView.setText(" ${fromUnitSpinner.poundConvert * inputValue} pound(s) ")
                                 }
                                 Weight.Ton -> {
-                                    convertedTextView.setText(" ${inputValue * fromUnitSpinner.tonConvert} ton(s)")
+                                    convertedTextView.setText(" ${fromUnitSpinner.tonConvert * inputValue} ton(s)")
                                 }
                             }
                         }
