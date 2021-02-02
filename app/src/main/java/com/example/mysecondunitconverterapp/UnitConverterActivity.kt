@@ -49,38 +49,51 @@ class UnitConverterActivity : AppCompatActivity()  {
         }
 
     }
-
                 @SuppressLint("SetTextI18n")
-                fun convert(){
-                    val firstSelectedUnit = fromUnitSpinner.selectedItem.toString()    //setting the selected item from first-unit-spinner to variable
-                    val secondSelectedUnit  = toUnitSpinner.selectedItem.toString()    //setting the selected item from second-unit-spinner to variable
-                                                                                      //.selectedItem - returns the data corresponding to current data item
+                fun convert() {
+                    if (validationCheck()) {
+                        val firstSelectedUnit = fromUnitSpinner.selectedItem.toString()    //setting the selected item from first-unit-spinner to variable
+                        val secondSelectedUnit = toUnitSpinner.selectedItem.toString()    //setting the selected item from second-unit-spinner to variable
+                        //.selectedItem - returns the data corresponding to current data item
 
-                    var inputValue : Double = firstInputEditText.text.toString().toDouble()  //Extracting the input value from edit-text view.
+                        var inputValue: Double = firstInputEditText.text.toString().toDouble()  //Extracting the input value from edit-text view.
 
-                    when(quantitySpinner.selectedItem) {
-                        "Weight" -> {
-                           val fromUnitSpinner = Weight.valueOf(firstSelectedUnit)
+                        when (quantitySpinner.selectedItem) {
+                            "Weight" -> {
+                                //.valueOf - This methods returns the enum constant defined in enum, matching the input string.
+                                // If the constant, is not present in the enum, then an IllegalArgumentException is thrown.
 
-                            //.valueOf - This methods returns the enum constant defined in enum, matching the input string.
-                            // If the constant, is not present in the enum, then an IllegalArgumentException is thrown.
+                                val fromUnitSpinner = Weight.valueOf(firstSelectedUnit)
+                                val secondSelectedUnit = Weight.valueOf(secondSelectedUnit)
 
-                            when(Weight.valueOf(secondSelectedUnit)) {
-                                Weight.Kilogram -> {
+                                if (secondSelectedUnit == Weight.Kilogram) {
                                     convertedTextView.setText(" ${fromUnitSpinner.kilogramConvert * inputValue} kilogram(s) ")
                                 }
-                                Weight.Gram -> {
+                                if (secondSelectedUnit == Weight.Gram) {
                                     convertedTextView.setText(" ${fromUnitSpinner.gramConvert * inputValue} gram(s) ")
                                 }
-                                Weight.Pound -> {
+                                if (secondSelectedUnit == Weight.Pound) {
                                     convertedTextView.setText(" ${fromUnitSpinner.poundConvert * inputValue} pound(s) ")
                                 }
-                                Weight.Ton -> {
+                                if (secondSelectedUnit == Weight.Ton) {
                                     convertedTextView.setText(" ${fromUnitSpinner.tonConvert * inputValue} ton(s)")
                                 }
                             }
                         }
                     }
+                }
+
+                fun validationCheck() : Boolean {                //entry validation check method
+                    var a = true
+                    if(firstInputEditText.text.toString().trim().isEmpty()){
+                        firstInputEditText.error = "Please Enter Initial Value"
+                        a = false
+                    }
+                    else if (firstInputEditText.text.toString().matches("[A-Za-z*$%#&^()@!_+{}';]*".toRegex())){
+                        firstInputEditText.error = "Wrong Input"
+                        a = false
+                    }
+                    return a
                 }
 }
 
