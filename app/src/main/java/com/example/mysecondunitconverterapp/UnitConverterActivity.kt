@@ -100,6 +100,18 @@ class UnitConverterActivity : AppCompatActivity()  {
                                     convertedTextView.setText(" ${fromUnitSpinner.feetConvert * inputValue} feet(s)")
                                 }
                             }
+
+                            "Volume" -> {
+                                val fromUnitSpinner = Volume.valueOf(firstSelectedUnit)
+                                val secondSelectedUnit = Volume.valueOf(secondSelectedUnit)
+
+                                if (secondSelectedUnit == Volume.Liter) {
+                                    convertedTextView.setText(" ${fromUnitSpinner.literConvert * inputValue} liter(s) ")
+                                }
+                                if (secondSelectedUnit == Volume.Milliliter) {
+                                    convertedTextView.setText(" ${fromUnitSpinner.milliliterConvert * inputValue} milliliter(s) ")
+                                }
+                            }
                             }
                         }
                     }
